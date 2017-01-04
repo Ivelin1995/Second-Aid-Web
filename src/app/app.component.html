@@ -1,0 +1,30 @@
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-custom navbar-dark ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>                    
+        </button>
+        <a class="navbar-brand" routerLink="">Second-Aid</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li ><a class="nav-link" routerLinkActive="active" routerLink="home">Home</a></li>
+            <li *ngIf="this.AuthService.isLoggedIn()"><a class="nav-link" routerLinkActive="active" routerLink="procedures">Procedures</a></li>
+            <li *ngIf="this.AuthService.isLoggedIn()"><a class="nav-link" routerLinkActive="active" routerLink="profile">Profile</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!this.AuthService.isLoggedIn()"><a class="nav-link" routerLinkActive="active" routerLink="login">Login</a></li>
+            <li *ngIf="this.AuthService.isLoggedIn()"><a class="nav-link" routerLinkActive="active" routerLink="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container text-center">
+    <router-outlet></router-outlet>
+  </div>
+</body>

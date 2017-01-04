@@ -1,0 +1,31 @@
+<table class="table" *ngIf="medicationInstruction">
+<thead>
+        <tr>
+            <th>
+                Drug
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Instructions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+		<tr *ngFor="let m of medication">
+            <td>
+				{{m.name}}
+            </td>
+            <td>
+                {{m.description}}
+            </td>
+            <td>
+                {{displayMedInfoDesc(m.medicationId)}}
+            </td>
+        </tr>
+	</tbody>
+</table>
+<div id="backBtnArea" class="col-xs-12 col-sm-12 col-lg-12">
+	<a class="backBtn" routerLink="../procedures">Back</a>
+</div>
